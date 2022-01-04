@@ -1,2 +1,2 @@
-# stock-analysis
+# Stock-Analysis
 Analyzing stocks using VBA
