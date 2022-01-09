@@ -1,10 +1,9 @@
 # Stock-Analysis
-Analyzing stocks using VBA
-## Overview: Explain the purpose of the analysis
+Overview: Explain the purpose of the analysis
 
-### Results
+## Results
 Using images and examples of your code, compare stock performance between 2017 and 2018, as well as the execution times of the original script and the refractored script
-### Summary: In a summary statement, address the following
+## Summary: In a summary statement, address the following
 1. What are the advantages or disadantages of refractoring code?
   You can run larger amounts of data and not use as much computer memory and won't wait as long. Doesn't search through ALL the data every single time a for loop runs. it idealizes it for a single purpose but copying and pasting for a different data set might be confusing.
   
