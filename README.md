@@ -1,5 +1,5 @@
 # Stock-Analysis
-Overview: Explain the purpose of the analysis
+## Overview
 The purpose of this analysis is to create an easy-to-use tool that will display the total volume and return of various green energy stocks. The intended user is someone with no programming experience and the tool does not require VBA knowledge to utilize. Steve, the indended user, is helping his parents with their investments who have all of their money in a single stock, "DAQO". He has also mentioned using this code in the future to analyze more than only green stocks.
 
 
@@ -20,15 +20,18 @@ Taking a quick look at the results of 2017 and 2018 stocks, it's clear that 2017
 
 To assess the eficiency of the code, a timer (a feature in VBA) was started at after the year was chosen and stopped upon completion. The timer showed 27.97 seconds when analyzing 2018 data and 29.11 seconds for 2017 data. While this might not seem like much, the data set only looks at 8 stocks and would henceforth take a considerable amount of time when more stocks are taken into account. Luckily, inefficiencies were found and a refactored code was made with significant improvements in run times. The timer now displayed 0.61 seconds for 2018 data analysis and 0.598 seconds for 2017 data.
 
-The changes made were very simple changes to the flow of the code and occured in the for loops. First, the original code shown earlier with the nested for loops indicates the inner loop to start at the beginning of the data and go all the way through to the end looking for the specified stock. That means that it goes through all the data 12 times! To avoid this, the refactored code moves onto the next stock once the previous one is finished being analyzed. This is done by not using a for loop to go through each stock by  making the value in the array change depending on when the inner loop calculates that the last data point for a stock is reached, then addds a value of 1 to go to the next value in thte array. Ovearll, this allows the code to run through the data set only once, saving a lot of procesing time.
+The changes made were very simple changes to the flow of the code and occured in the for loops. First, the original code shown earlier with the nested for loops indicates the inner loop to start at the beginning of the data and go all the way through to the end looking for the specified stock. That means that it goes through all the data 12 times! To avoid this, the refactored code moves onto the next stock once the previous one is finished being analyzed. This is done by not using a for loop to go through each stock by  making the value in the array change depending on when the inner loop calculates that the last data point for a stock is reached, then addds a value of 1 to go to the next value in thte array. In the following code, the variable "stockIndex" is used to indicated which stock the program is currently checking on. Ovearll, this allows the code to run through the data set only once, saving a lot of procesing time.
 
 ![refactored code loops](https://user-images.githubusercontent.com/95305584/148861811-b752ad9c-deda-4776-9b93-c514b6ede989.png)
 
 
 
-## Summary: In a summary statement, address the following
-1. What are the advantages or disadantages of refractoring code?
-  You can run larger amounts of data and not use as much computer memory and won't wait as long. Doesn't search through ALL the data every single time a for loop runs. it idealizes it for a single purpose but copying and pasting for a different data set might be confusing.
+## Summary
+
+### Advantages and Disadvantages to Refactored Code:
+You can run larger amounts of data and not use as much computer memory and won't wait as long. Doesn't search through **ALL** the data every single time a for loop runs. it idealizes it for a single purpose but copying. While refactoring code can make it run much smoother, it is limited to the data set that it is intended for. If an additional column were added, it would be much easier to edit the code to run in the original format of the script than in the refactored kind. 
   
-3. How do these pros and cons apply to refractoring the original VBA script?
- Cons: the stocks listed in the array need to be in the order that they appear in the data set and the data set has to be filtered ahead of time so that all rows of data of a single stock ticker is together with no other stocks in the middle. 
+### How these pros and cons apply to refractoring the original VBA script:
+ **Cons**: The stocks listed in the array need to be in the order that they appear in the data set and the data set has to be filtered ahead of time so that all rows of data of a single stock ticker is together with no other stocks in the middle. If the data wasn't alphabetical or if the order of the array didn't match the order of the data in the set, then the analysis would be incomplete. Of course, one way to avoid this would be to add a line of code prior to the for loop that filters the data based off ticker name in alphabetical order after first filtering based off of the date.
+ 
+ **Pros**: It simplifies the code and is potentially easier to read through. It allows for larger amounts of data to be analyzed without causing massive increases in wait time. By ractoring, the added rows of data would only be analyzed once. So doubling the data would double the run time for both refactored and unrefactored code respectively.
